@@ -2,7 +2,7 @@
 
 ## 1. Package realman_description
 
-> 功能：<br>
+> 功能：对RealMan Robot RM65进行运动学建模，并输出其模型描述urdf文件。<br>
 > 启动：roslaunch
 
 ## 2. Package realman_msgs
