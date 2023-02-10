@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<robot name="realman_65b_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <!-- define default arguments -->
+  <xacro:arg name="prefix" default=""/>
+  <xacro:arg name="xyz" default="0.0 0.0 0.0" />
+  <xacro:arg name="rpy" default="0.0 0.0 0.0" />
+  
+  <!-- include common stuff macro -->
+  <xacro:include filename="$(find realman_description)/urdf/common.gazebo.xacro" />
+  
+  <!-- include realman_65b macro -->
+  <xacro:include filename="$(find realman_description)/urdf/realman_65b.urdf.xacro" />
+  
+  <!-- construct realman_65b -->
+  <xacro:realman_65b prefix="$(arg prefix)" />
+  
+  <!-- construct the scene -->
+  <link name="world" />
+  <joint name="$(arg prefix)world_joint" type="fixed">
+      <parent link="world" />
+      <child link = "$(arg prefix)base_link" />
+      <origin xyz="$(arg xyz)" rpy="$(arg rpy)" />
+  </joint>
+  
+</robot>

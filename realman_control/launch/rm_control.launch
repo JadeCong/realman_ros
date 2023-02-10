@@ -1,0 +1,6 @@
+<launch>
+	
+	<node pkg="realman_control" name="realman_control" type="realman_control" output="screen">
+	</node>
+	
+</launch>

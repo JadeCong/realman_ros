@@ -7,7 +7,13 @@ project(realman_msgs)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  message_generation
+  geometry_msgs
+  rospy
+  std_msgs
+  roscpp
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -48,6 +54,48 @@ find_package(catkin REQUIRED)
 #   Message1.msg
 #   Message2.msg
 # )
+add_message_files(
+    FILES
+    Arm_Analog_Output.msg
+    Arm_Digital_Output.msg
+    Arm_IO_State.msg
+    JointPos.msg
+    MoveC.msg
+    MoveJ.msg
+    MoveJ_P.msg
+    MoveL.msg
+    Tool_Analog_Output.msg
+    Tool_Digital_Output.msg
+    Tool_IO_State.msg
+    Plan_State.msg
+    ChangeTool_State.msg
+    ChangeTool_Name.msg
+    ChangeWorkFrame_State.msg
+    ChangeWorkFrame_Name.msg
+    Arm_Current_State.msg
+    GetArmState_Command.msg
+    Stop.msg
+    Joint_Teach.msg
+    Pos_Teach.msg
+    Ort_Teach.msg
+    Stop_Teach.msg
+    Gripper_Set.msg
+    Gripper_Pick.msg
+    Joint_Enable.msg
+    IO_Update.msg
+    Turtle_Driver.msg
+    Socket_Command.msg
+    Start_Multi_Drag_Teach.msg
+    Set_Force_Position.msg
+    Force_Position_Move_Joint.msg
+    Force_Position_Move_Pose.msg
+    Force_Position_State.msg
+    Six_Force.msg
+    Manual_Set_Force_Pose.msg
+    CartePos.msg
+    Lift_Height.msg
+    Lift_Speed.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -68,6 +116,11 @@ find_package(catkin REQUIRED)
 #   DEPENDENCIES
 #   std_msgs  # Or other packages containing msgs
 # )
+generate_messages(
+    DEPENDENCIES
+    geometry_msgs
+    std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -99,10 +152,10 @@ find_package(catkin REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+    INCLUDE_DIRS include
 #  LIBRARIES realman_msgs
-#  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
+    CATKIN_DEPENDS geometry_msgs rospy std_msgs roscpp
+    DEPENDS system_lib
 )
 
 ###########
@@ -113,7 +166,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-# ${catkin_INCLUDE_DIRS}
+    ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library

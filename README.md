@@ -30,12 +30,7 @@
 > 功能：<br>
 > 启动：roslaunch
 
-## 7. Package realman_bringup
-
-> 功能：<br>
-> 启动：roslaunch
-
-## 8. Package realman_demo
+## 7. Package realman_demo
 
 > 功能：<br>
 > 启动：roslaunch
