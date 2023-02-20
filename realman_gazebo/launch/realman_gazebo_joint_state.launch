@@ -1,0 +1,14 @@
+<launch>
+    
+    <!-- Load controller configuration file -->
+    <rosparam file="$(find realman_gazebo)/config/realman_gazebo_joint_states.yaml" command="load"/>
+    
+    <!-- Spawn controller -->
+    <node name="joint_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/realman_65b" args="joint_state_controller"/>
+    
+    <!-- Run robot_state_publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <remap from="/joint_states" to="/realman_65b/joint_states"/>
+    </node>
+    
+</launch>

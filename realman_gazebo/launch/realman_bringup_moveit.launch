@@ -1,0 +1,15 @@
+<launch>
+    
+    <!-- Launch gazebo -->
+    <include file="$(find realman_gazebo)/launch/realman_gazebo_world.launch" />
+    
+    <!-- Load ros_control launch file -->
+    <include file="$(find realman_gazebo)/launch/realman_gazebo_joint_state.launch" />
+    
+    <!-- Load ros_control trajectory control launch file -->
+    <include file="$(find realman_gazebo)/launch/realman_gazebo_trajectory_controller.launch" />
+    
+    <!-- Launch moveit file -->
+    <include file="$(find realman_moveit)/launch/moveit_planning_execution.launch" />
+    
+</launch>

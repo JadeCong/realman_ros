@@ -1,0 +1,9 @@
+<launch>
+    
+    <!-- Launch gazebo -->
+    <include file="$(find realman_gazebo)/launch/realman_gazebo_world.launch" />   
+    
+    <!-- Run gazebo controler -->
+    <include file="$(find realman_gazebo)/launch/realman_gazebo_controller.launch" />   
+    
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+    
+    <!-- Load controller configuration file -->
+    <rosparam file="$(find realman_gazebo)/config/realman_trajectory_control.yaml" command="load"/>
+    
+    <!-- Spawn controller -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/realman_65b" args="arm_joint_controller"/>
+    
+</launch>
