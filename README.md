@@ -1,4 +1,4 @@
-# ROS Packages for RealMan Robot RM65b
+# ROS Packages for RealMan Robot RM65B
 
 ## 1. Package realman_description
 
